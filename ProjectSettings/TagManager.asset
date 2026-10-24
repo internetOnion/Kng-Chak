@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -41,3 +41,29 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrop
+    uniqueID: 67795883
+    locked: 0
+  - name: Stars
+    uniqueID: 860962413
+    locked: 0
+  - name: ArenaFX
+    uniqueID: 2768008207
+    locked: 0
+  - name: Planet
+    uniqueID: 2632938701
+    locked: 0
+  - name: Rocks
+    uniqueID: 1015816705
+    locked: 0
+  - name: Ship
+    uniqueID: 2704353989
+    locked: 0
+  - name: VFX
+    uniqueID: 692200105
+    locked: 0
+  - name: WorldUI
+    uniqueID: 2718825031
+    locked: 0
+  m_RenderingLayers:
+  - Default
