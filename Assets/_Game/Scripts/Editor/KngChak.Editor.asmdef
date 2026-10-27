@@ -1,0 +1,18 @@
+{
+    "name": "KngChak.Editor",
+    "rootNamespace": "KngChak.EditorTools",
+    "references": [
+        "GUID:54a8c43a98ce24d08bcdc1239ff8430f"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
