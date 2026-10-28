@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &107082055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107082057}
+  - component: {fileID: 107082056}
+  m_Layer: 0
+  m_Name: ContractTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &107082056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107082055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198271f3b22eb4c058d4cec395036234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KngChak.Runtime::KngChak.ContractTest.ShipContractTest
+  ship: {fileID: 820249564}
+--- !u!4 &107082057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107082055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.78297, y: -3.62853, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +385,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820249564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2012428608044971410, guid: 9b4fa7d9607424c7f9cd533158bdafe8, type: 3}
+  m_PrefabInstance: {fileID: 2563648769869672076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf3db995c94440ed8cce50a6bde37e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KngChak.Runtime::KngChak.Ship.ShipController
 --- !u!1001 &1863183362902612814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,3 +518,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1863183362902612814}
   - {fileID: 2563648769869672076}
+  - {fileID: 107082057}
