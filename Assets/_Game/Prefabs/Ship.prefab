@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 485498813031501388}
   - component: {fileID: 6003548900805828719}
+  - component: {fileID: -2012428608044971410}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -91,3 +92,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &-2012428608044971410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067227781233124634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf3db995c94440ed8cce50a6bde37e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KngChak.Runtime::KngChak.Ship.ShipController
