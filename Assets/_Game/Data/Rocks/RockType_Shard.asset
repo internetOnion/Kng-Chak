@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a35bb9f19d04d799d1d66d76eadb3d, type: 3}
   m_Name: RockType_Shard
   m_EditorClassIdentifier: KngChak.Runtime::KngChak.Data.RockTypeDefinition
-  <DisplayName>k__BackingField: 
+  <DisplayName>k__BackingField: Shard
   <Size>k__BackingField: 0.85
   <FallSpeed>k__BackingField: 3.5
   <DamagePercent>k__BackingField: 4
   <Score>k__BackingField: 50
   <PushMass>k__BackingField: 1.4
   <NeedsPrime>k__BackingField: 0
-  <Tint>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <Tint>k__BackingField: {r: 0.76862746, g: 0.6039216, b: 0.45490196, a: 1}
   <Sprites>k__BackingField: []
