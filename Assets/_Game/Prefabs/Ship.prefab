@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 485498813031501388}
   - component: {fileID: 6003548900805828719}
   - component: {fileID: -2012428608044971410}
+  - component: {fileID: 4895299184781486624}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -104,3 +105,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf3db995c94440ed8cce50a6bde37e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: KngChak.Runtime::KngChak.Ship.ShipController
+--- !u!114 &4895299184781486624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067227781233124634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed3e671b1da84dc8b9a2384cdc1ee6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KngChak.Runtime::KngChak.Combat.HealthComponent
