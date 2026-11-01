@@ -104,3 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf3db995c94440ed8cce50a6bde37e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: KngChak.Runtime::KngChak.Ship.ShipController
+  _config: {fileID: 11400000, guid: 5d8d6611281604a51af2fb1edd1fdde1, type: 2}
+  _arena: {fileID: 11400000, guid: bc973ae15c32c4f9bbd88bf82e4ee35a, type: 2}
