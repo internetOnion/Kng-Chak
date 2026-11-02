@@ -14,3 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: KngChak.Runtime::KngChak.ShipConfig
   <MaxSpeed>k__BackingField: 22
   <Drag>k__BackingField: 0.45
+  <ThrustAccel>k__BackingField: 32
+  <Brake>k__BackingField: 2.6
+  <TurnRate>k__BackingField: 315
+  <ThrustConeDeg>k__BackingField: 75
+  <Grip>k__BackingField: 1.7
+  <CursorDeadzone>k__BackingField: 2.5
+  <CursorFullRange>k__BackingField: 12
+  <BoostSpeed>k__BackingField: 46
+  <BoostDuration>k__BackingField: 0.45
+  <FuelMax>k__BackingField: 100
+  <BoostCost>k__BackingField: 30
+  <FuelRegen>k__BackingField: 7
