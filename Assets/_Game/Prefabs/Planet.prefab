@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5587156717551633338}
   - component: {fileID: 2902815728367724245}
+  - component: {fileID: 2202603205859366315}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -91,3 +92,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2202603205859366315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952398704255103905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed3e671b1da84dc8b9a2384cdc1ee6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KngChak.Runtime::KngChak.Combat.PlanetHealth
