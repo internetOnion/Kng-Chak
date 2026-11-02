@@ -8,7 +8,7 @@ namespace KngChak
     /// Attach to any GameObject in the test scene to verify the hub works.                                                                                                                         
     /// Remove (or disable) before shipping.                                                                                                                                                        
     /// </summary> 
-    public class GameEventLogger : MonoBehaviour
+    public class GameEventsLogger : MonoBehaviour
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void OnEnable()
