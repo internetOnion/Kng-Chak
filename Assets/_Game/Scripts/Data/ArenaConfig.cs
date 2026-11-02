@@ -26,6 +26,7 @@ namespace KngChak.Data
         {
             CamFar = Mathf.Max(CamFar, CamNear + 0.01f);   // the camera blend needs Near < Far
             CamPlanetShow = Mathf.Clamp01(CamPlanetShow);   // a fraction: 0 to 1
+            EdgeShowDist = Mathf.Max(EdgeShowDist, 0.01f);  // the edge fade divides by this
         }
     }
 }

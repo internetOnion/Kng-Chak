@@ -104,4 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f27667742f3f42129c069c38e50c705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: KngChak.Runtime::KngChak.Rocks.Rock
-  _rockType: {fileID: 0}
+  _rockType: {fileID: 11400000, guid: 503e8600f9eaa473193b4113d544f112, type: 2}
