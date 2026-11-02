@@ -23,5 +23,10 @@ namespace KngChak.Data
         [Header("Boost")]
         [field: SerializeField] public float BoostSpeed { get; private set; } = 46f;
         [field: SerializeField] public float BoostDuration { get; private set; } = 0.45f;
+
+        [Header("Fuel")]
+        [field: SerializeField] public float FuelMax { get; private set; } = 100f;
+        [field: SerializeField] public float BoostCost { get; private set; } = 30f;   // one "segment": the fuel one boost burst uses
+        [field: SerializeField] public float FuelRegen { get; private set; } = 7f;    // fuel per second, refilled while not boosting
     }
 }
