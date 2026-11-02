@@ -13,6 +13,20 @@ namespace KngChak.Ship
         public Vector2 Velocity { get; private set; }
 
         /// <summary>
+        /// tell how hard the engine is pushing the ship the range is between 0 and 1
+        /// </summary>
+        public float Throttle
+        {
+            get => _throttle;
+            private set => _throttle = Mathf.Clamp01(value);
+        }
+
+        /// <summary>
+        /// fuel tank of the ship 0 - 100
+        /// </summary>
+        public float Fuel { get; private set; }
+
+        /// <summary>
         ///  the direction that the head of the ship pointing to
         /// transform.up always has length 1, and with 2D rotation only around z, dropping z keeps it at length 1
         /// </summary>
@@ -39,7 +53,21 @@ namespace KngChak.Ship
 
         private float _boostTimeLeft;   // counts down while boosting; ≤ 0 = not boosting
 
-        private void Awake() => _cam = Camera.main;
+        /// <summary>
+        /// Fuel as 0–1 (0 = empty, 1 = full), for bars and arcs.
+        /// </summary>
+        public float Fuel01 => _config.FuelMax > 0f ? Fuel / _config.FuelMax : 0f;
+
+        /// <summary>
+        /// True when there's enough fuel for one boost burst.
+        /// </summary>
+        public bool CanBoost => Fuel >= _config.BoostCost;
+
+        private void Awake()
+        {
+            _cam = Camera.main;
+            Fuel = _config.FuelMax;
+        }
 
         private void Update()
         {
@@ -56,13 +84,18 @@ namespace KngChak.Ship
             }
 
             // boost: a tap starts a short burst along the nose
-            if (boostPressed && !IsBoosting)
+            if (boostPressed && !IsBoosting && CanBoost)
             {
+                Fuel -= _config.BoostCost;
                 _boostTimeLeft = _config.BoostDuration;
                 if (hasWant)   // boost = instant sharp turn: fire where you aim, not where the nose was
                     transform.rotation = Quaternion.Euler(0f, 0f, Vector2.SignedAngle(Vector2.up, want));
             }
             IsBoosting = _boostTimeLeft > 0f;
+
+            // refuel while not boosting, never past a full tank
+            if (!IsBoosting)
+                Fuel = Mathf.Min(_config.FuelMax, Fuel + _config.FuelRegen * dt);
 
             if (IsBoosting)
             {
@@ -113,14 +146,7 @@ namespace KngChak.Ship
             Gizmos.DrawWireSphere(Vector3.zero, _arena.OrbitRadius);
         }
 
-        /// <summary>
-        /// tell how hard the engine is pushing the ship the range is between 0 and 1
-        /// </summary>
-        public float Throttle
-        {
-            get => _throttle;
-            private set => _throttle = Mathf.Clamp01(value);
-        }
+
 
         /// <summary>
         /// Bumps the ship away with an impulse (direction × strength),
