@@ -6,7 +6,7 @@ namespace KngChak.Data
     public class RockTypeDefinition : ScriptableObject
     {
         [field: SerializeField] public string DisplayName { get; private set; }
-        [field: SerializeField] public float Size { get; private set; }
+        [field: SerializeField] public float Size { get; private set; }   // radius in world units (the prototype's "size")
         [field: SerializeField] public float FallSpeed { get; private set; }
         [field: SerializeField] public int DamagePercent { get; private set; }
         [field: SerializeField] public int Score { get; private set; }

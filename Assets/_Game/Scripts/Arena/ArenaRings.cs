@@ -23,19 +23,34 @@ namespace KngChak.Arena
 
         private const int SEGMENTS = 128; // how smooth the circle looks
 
+        // radii last drawn, so circles are only rebuilt when the config changes (-1 = not drawn yet)
+        private float _drawnEdgeRadius = -1f;
+        private float _drawnOrbitRadius = -1f;
 
-        // ── Lifecycle ──────────────────────────────────────────────── 
+
+        // ── Lifecycle ────────────────────────────────────────────────
         void OnEnable()
         {
             _edgeRing = GetOrCreate("EdgeRing");
             _orbitRing = GetOrCreate("OrbitRing");
+            _drawnEdgeRadius = -1f;
+            _drawnOrbitRadius = -1f;
         }
 
         void Update()
         {
             if (_config == null) return;
-            DrawCircle(_edgeRing, _config.ArenaRadius);   // big outer edge
-            DrawCircle(_orbitRing, _config.OrbitRadius);   // inner orbit band
+
+            if (_config.ArenaRadius != _drawnEdgeRadius)
+            {
+                DrawCircle(_edgeRing, _config.ArenaRadius);   // big outer edge
+                _drawnEdgeRadius = _config.ArenaRadius;
+            }
+            if (_config.OrbitRadius != _drawnOrbitRadius)
+            {
+                DrawCircle(_orbitRing, _config.OrbitRadius);   // inner orbit band
+                _drawnOrbitRadius = _config.OrbitRadius;
+            }
 
             FadeEdge();
 
@@ -44,7 +59,7 @@ namespace KngChak.Arena
 
 
         // ── Circle drawing ───────────────────────────────────────────
-        /// <summary>Writes SEGMENTS world-space positions around a circle.</summary>
+        /// <summary>Writes SEGMENTS local positions around a circle (moving this object moves the rings).</summary>
         void DrawCircle(LineRenderer lr, float radius)
         {
             if (lr == null) return;
@@ -58,7 +73,7 @@ namespace KngChak.Arena
                 float y = Mathf.Sin(angle) * radius;
 
                 // 2D game → positions are on the XY plane
-                lr.SetPosition(i, transform.position + new Vector3(x, y, 0f));
+                lr.SetPosition(i, new Vector3(x, y, 0f));
             }
 
 
@@ -106,13 +121,16 @@ namespace KngChak.Arena
 
 
             // ← the key sorting layer
-            lr.useWorldSpace = true;
+            lr.useWorldSpace = false; // positions are relative to this object, so they only need drawing once
             lr.loop = true;
             // closes the circle
 
             lr.startWidth = 0.15f;
             lr.endWidth = 0.15f;
-            lr.material = new Material(Shader.Find("Sprites/Default"));
+
+            // create the material once: with [ExecuteAlways], OnEnable runs again and again in the editor
+            if (lr.sharedMaterial == null)
+                lr.sharedMaterial = new Material(Shader.Find("Sprites/Default"));
 
 
             return lr;

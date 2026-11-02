@@ -60,7 +60,10 @@ namespace KngChak.Rocks
             if (_rockType == null) return;
             if (_sr == null) _sr = GetComponent<SpriteRenderer>();
             _sr.color = _rockType.Tint;
-            transform.localScale = Vector3.one * _rockType.Size;
+
+            // Size is a radius: scale the sprite so its width = 2 × Size, whatever the sprite's own size
+            float spriteWidth = _sr.sprite != null ? _sr.sprite.bounds.size.x : 1f;
+            transform.localScale = Vector3.one * (2f * _rockType.Size / spriteWidth);
         }
     }
 }
