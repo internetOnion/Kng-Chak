@@ -17,3 +17,6 @@ MonoBehaviour:
   <ArenaRadius>k__BackingField: 66
   <EdgeShowDist>k__BackingField: 8
   <CamView>k__BackingField: 50
+  <CamNear>k__BackingField: 15
+  <CamFar>k__BackingField: 30
+  <CamPlanetShow>k__BackingField: 0.35
