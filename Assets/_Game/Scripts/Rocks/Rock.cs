@@ -1,6 +1,7 @@
 using System;
 using KngChak.Data;
 using KngChak.Flow;
+using KngChak.Combat;
 using UnityEngine;
 
 namespace KngChak.Rocks
@@ -13,6 +14,9 @@ namespace KngChak.Rocks
     public class Rock : MonoBehaviour
     {
         [SerializeField] private RockTypeDefinition _rockType;
+        [SerializeField] private ArenaConfig _arena;
+
+        private PlanetHealth _planet;
 
         private SpriteRenderer _sr;
 
@@ -44,11 +48,38 @@ namespace KngChak.Rocks
             GameEvents.RockBroken();
         }
 
+
+
+        void Start()
+        {
+            _planet = FindAnyObjectByType<PlanetHealth>();
+            if (_planet == null) Debug.Log("Rock : No planet component in the scene", this);
+        }
         void Awake()
         {
             ApplyDefinition();
+
+
+        }
+        void Update()
+        {
+            if (_planet == null || _arena == null || _rockType == null || IsBroken) return;
+
+            Vector2 planetPos = _planet.transform.position;
+            Vector2 newPos = Vector2.MoveTowards(
+                transform.position, planetPos, _rockType.FallSpeed * Time.deltaTime);
+            transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+
+            float hitDistance = _arena.PlanetRadius + _rockType.Size;
+            if (Vector2.Distance(newPos, planetPos) <= hitDistance)
+                HitPlanet();
         }
 
+        void HitPlanet()
+        {
+            _planet.TakeDamage(_rockType.DamagePercent);
+            Destroy(gameObject);
+        }
         // Runs when a value is changed in the Inspector: preview the rock type's size and tint without pressing Play.
         void OnValidate()
         {
