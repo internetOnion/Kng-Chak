@@ -36,11 +36,12 @@ namespace KngChak.Flow
 
         /// <summary>
         /// Fired at the beginning of each wave.
+        /// Parameter: the wave number, starting at 1.
         /// Producers: WaveManager
         /// Consumers: HUD (wave number), Audio
         /// </summary>
-        public static event Action OnWaveStarted;
-        public static void WaveStarted() => OnWaveStarted?.Invoke();
+        public static event Action<int> OnWaveStarted;
+        public static void WaveStarted(int waveNumber) => OnWaveStarted?.Invoke(waveNumber);
 
         /// <summary>
         /// Fired when all rocks in a wave are destroyed.
@@ -66,5 +67,23 @@ namespace KngChak.Flow
         /// </summary>
         public static event Action OnRunStarted;
         public static void RunStarted() => OnRunStarted?.Invoke();
+
+        /// <summary>
+        /// Fired whenever planet HP changes: damage, heal or reset.
+        /// Parameter: the new HP, in percent (0–100).
+        /// Producers: PlanetHealth
+        /// Consumers: HUD
+        /// </summary>
+        public static event Action<int> OnPlanetHPChanged;
+        public static void PlanetHPChanged(int hp) => OnPlanetHPChanged?.Invoke(hp);
+
+        /// <summary>
+        /// Fired whenever the run's score changes.
+        /// Parameter: the new total score.
+        /// Producers: whoever awards score (combat, combos)
+        /// Consumers: HUD
+        /// </summary>
+        public static event Action<int> OnScoreChanged;
+        public static void ScoreChanged(int total) => OnScoreChanged?.Invoke(total);
     }
 }

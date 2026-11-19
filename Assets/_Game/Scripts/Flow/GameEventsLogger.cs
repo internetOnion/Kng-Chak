@@ -18,6 +18,8 @@ namespace KngChak.Flow
             GameEvents.OnWaveCleared += LogWaveCleared;
             GameEvents.OnGameOver += LogGameOver;
             GameEvents.OnRunStarted += LogRunStarted;
+            GameEvents.OnPlanetHPChanged += LogPlanetHPChanged;
+            GameEvents.OnScoreChanged += LogScoreChanged;
         }
 
         void OnDisable()
@@ -29,14 +31,18 @@ namespace KngChak.Flow
             GameEvents.OnWaveCleared -= LogWaveCleared;
             GameEvents.OnGameOver -= LogGameOver;
             GameEvents.OnRunStarted -= LogRunStarted;
+            GameEvents.OnPlanetHPChanged -= LogPlanetHPChanged;
+            GameEvents.OnScoreChanged -= LogScoreChanged;
         }
 
         void LogRockBroken() => Debug.Log("[GameEvents] RockBroken");
         void LogRockPrimed() => Debug.Log("[GameEvents] RockPrimed");
         void LogPlanetHit(int damage) => Debug.Log($"[GameEvents] PlanetHit ({damage})");
-        void LogWaveStarted() => Debug.Log("[GameEvents] WaveStarted");
+        void LogWaveStarted(int waveNumber) => Debug.Log($"[GameEvents] WaveStarted ({waveNumber})");
         void LogWaveCleared() => Debug.Log("[GameEvents] WaveCleared");
         void LogGameOver() => Debug.Log("[GameEvents] GameOver");
         void LogRunStarted() => Debug.Log("[GameEvents] RunStarted");
+        void LogPlanetHPChanged(int hp) => Debug.Log($"[GameEvents] PlanetHPChanged ({hp})");
+        void LogScoreChanged(int total) => Debug.Log($"[GameEvents] ScoreChanged ({total})");
     }
 }

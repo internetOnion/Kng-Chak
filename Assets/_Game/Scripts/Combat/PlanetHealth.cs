@@ -46,6 +46,7 @@ namespace KngChak.Combat
         {
             HP = MaxHP;
             HPChanged?.Invoke(HP);
+            GameEvents.PlanetHPChanged(HP);
         }
 
         /// <summary>
@@ -58,6 +59,7 @@ namespace KngChak.Combat
             if (IsDead || amount <= 0) return;
             HP = Mathf.Max(HP - amount, 0);
             HPChanged?.Invoke(HP);
+            GameEvents.PlanetHPChanged(HP);
             GameEvents.PlanetHit(amount);
             if (IsDead)
             {
@@ -75,6 +77,7 @@ namespace KngChak.Combat
             if (IsDead || amount <= 0 || HP == MaxHP) return;
             HP = Mathf.Min(HP + amount, MaxHP);
             HPChanged?.Invoke(HP);
+            GameEvents.PlanetHPChanged(HP);
         }
     }
 }
