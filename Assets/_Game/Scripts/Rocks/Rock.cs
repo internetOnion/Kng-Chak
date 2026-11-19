@@ -59,6 +59,10 @@ namespace KngChak.Rocks
         {
             if (_rockType == null) return;
             if (_sr == null) _sr = GetComponent<SpriteRenderer>();
+            if (_rockType.Sprites != null && _rockType.Sprites.Length > 0)
+            {
+                _sr.sprite = _rockType.Sprites[0];
+            }
             _sr.color = _rockType.Tint;
 
             // Size is a radius: scale the sprite so its width = 2 × Size, whatever the sprite's own size

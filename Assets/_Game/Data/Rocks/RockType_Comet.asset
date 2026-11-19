@@ -20,4 +20,5 @@ MonoBehaviour:
   <PushMass>k__BackingField: 0.8
   <NeedsPrime>k__BackingField: 1
   <Tint>k__BackingField: {r: 0.7490196, g: 0.9647059, b: 1, a: 1}
-  <Sprites>k__BackingField: []
+  <Sprites>k__BackingField:
+  - {fileID: 21300000, guid: 28be145b91164b5bab650cfb4e7bec25, type: 3}
