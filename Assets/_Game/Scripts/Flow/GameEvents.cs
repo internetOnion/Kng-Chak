@@ -57,5 +57,14 @@ namespace KngChak.Flow
         /// </summary>
         public static event Action OnGameOver;
         public static void GameOver() => OnGameOver?.Invoke();
+
+        /// <summary>
+        /// Fired when a run begins: the first tap on the start screen, or a tap to restart after game over.
+        /// Every system resets itself here, ready for wave 1.
+        /// Producers: GameFlow
+        /// Consumers: PlanetHealth (full HP), WaveManager (start wave 1), Ship, Rocks
+        /// </summary>
+        public static event Action OnRunStarted;
+        public static void RunStarted() => OnRunStarted?.Invoke();
     }
 }
