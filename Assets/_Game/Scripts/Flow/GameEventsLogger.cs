@@ -17,6 +17,7 @@ namespace KngChak.Flow
             GameEvents.OnWaveStarted += LogWaveStarted;
             GameEvents.OnWaveCleared += LogWaveCleared;
             GameEvents.OnGameOver += LogGameOver;
+            GameEvents.OnRunStarted += LogRunStarted;
         }
 
         void OnDisable()
@@ -27,6 +28,7 @@ namespace KngChak.Flow
             GameEvents.OnWaveStarted -= LogWaveStarted;
             GameEvents.OnWaveCleared -= LogWaveCleared;
             GameEvents.OnGameOver -= LogGameOver;
+            GameEvents.OnRunStarted -= LogRunStarted;
         }
 
         void LogRockBroken() => Debug.Log("[GameEvents] RockBroken");
@@ -35,5 +37,6 @@ namespace KngChak.Flow
         void LogWaveStarted() => Debug.Log("[GameEvents] WaveStarted");
         void LogWaveCleared() => Debug.Log("[GameEvents] WaveCleared");
         void LogGameOver() => Debug.Log("[GameEvents] GameOver");
+        void LogRunStarted() => Debug.Log("[GameEvents] RunStarted");
     }
 }

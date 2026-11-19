@@ -29,6 +29,25 @@ namespace KngChak.Combat
         /// </summary>
         public event Action Died;
 
+        void OnEnable()
+        {
+            GameEvents.OnRunStarted += ResetHealth;
+        }
+
+        void OnDisable()
+        {
+            GameEvents.OnRunStarted -= ResetHealth;
+        }
+
+        /// <summary>
+        /// Back to full HP for a new run. Called on GameEvents.RunStarted.
+        /// </summary>
+        public void ResetHealth()
+        {
+            HP = MaxHP;
+            HPChanged?.Invoke(HP);
+        }
+
         /// <summary>
         /// Reduces HP by <paramref name="amount"/> percent.
         /// Clamps to 0 and fires <see cref="Died"/> on the killing hit.
